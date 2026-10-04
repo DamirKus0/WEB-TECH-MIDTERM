@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Micro-Loan Platform: a student demo of a simple micro-loan application website.">
+  <title>Home | Micro-Loan Platform</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container-fluid header-inner">
+      <a class="brand" href="index.html">Micro-Loan Platform</a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="apply.html">Apply for Loan</a></li>
+          <li><a href="loans.html">My Loans</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-content">
+    <section class="hero text-center" aria-labelledby="hero-title">
+      <h1 id="hero-title">Your Path to Financial Freedom Starts Here</h1>
+      <p class="hero-description">Get quick and easy micro-loans to help you achieve your goals. Simple application, fast approval, and flexible repayment options.</p>
+      <a class="btn btn-primary main-cta" href="apply.html">Apply for a Loan Today!</a>
+    </section>
+
+    <section class="feature-grid" aria-label="Loan benefits">
+      <article class="card feature-card text-center">
+        <span class="feature-icon text-primary" aria-hidden="true">$</span>
+        <h2>Quick Application</h2>
+        <p>Our streamlined process makes applying for a loan fast and hassle-free.</p>
+      </article>
+      <article class="card feature-card text-center">
+        <span class="feature-icon approval-icon" aria-hidden="true">✓</span>
+        <h2>Fast Approval</h2>
+        <p>Get a decision on your loan application in minutes, not days.</p>
+      </article>
+      <article class="card feature-card text-center">
+        <span class="feature-icon calendar-icon" aria-hidden="true">▦</span>
+        <h2>Flexible Terms</h2>
+        <p>Choose repayment plans that fit your budget and lifestyle.</p>
+      </article>
+    </section>
+
+    <section class="card calculator" aria-labelledby="calculator-title">
+      <h2 id="calculator-title">Loan Calculator</h2>
+      <form aria-label="Demo loan calculator">
+        <div class="row">
+          <div class="col-12 mb-3">
+            <label class="form-label" for="loan-amount">Loan Amount ($):</label>
+            <input class="form-control" id="loan-amount" type="number" value="1000" min="100" max="5000" step="100">
+          </div>
+          <div class="col-12 mb-3">
+            <label class="form-label" for="loan-term">Loan Term (months):</label>
+            <input class="form-control" id="loan-term" type="number" value="12" min="1" step="1">
+          </div>
+        </div>
+        <button class="btn btn-success w-100" type="button" aria-describedby="calculator-demo">Calculate</button>
+      </form>
+      <p class="payment-result mb-1">Estimated Monthly Payment: <span class="text-primary">$87.50</span></p>
+      <p class="small text-secondary mb-0" id="calculator-demo">Demo only — calculation is not active.</p>
+      <p class="small text-secondary mt-1 mb-0">Example: $1,000 over 12 months at 5% annual simple interest.</p>
+    </section>
+
+    <section class="bottom-cta text-center" aria-labelledby="cta-title">
+      <h2 id="cta-title">Ready to get started?</h2>
+      <p>Join thousands of satisfied customers who have achieved their financial goals with our help.</p>
+      <a class="btn btn-primary main-cta" href="apply.html">Apply for a Loan Now</a>
+    </section>
+
+    <section id="contact" class="contact-section text-center" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <p class="mb-0">Micro-Loan Platform is a student project. Loan applications and payments are demonstrations only.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer text-center">
+    <p class="mb-1">© 2026 Micro-Loan Platform. All rights reserved.</p>
+    <nav aria-label="Legal navigation">
+      <a href="loan-details.html#privacy">Privacy Policy</a>
+      <span aria-hidden="true"> | </span>
+      <a href="loan-details.html#terms">Terms of Service</a>
+    </nav>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,178 @@
+/* Shared styles for all pages. Bootstrap supplies forms, buttons and grid. */
+:root {
+  --site-text: #343434;
+  --site-border: #dee2e6;
+  --site-blue: #2463eb;
+}
+body {
+  color: var(--site-text);
+  background-color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+}
+a {
+  color: var(--site-blue);
+}
+.site-header {
+  margin: 0 15px;
+  border-bottom: 1px solid #ced4da;
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 26px 18px 14px;
+}
+.brand {
+  color: var(--site-text);
+  font-size: 22px;
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.page-content {
+  max-width: 900px;
+}
+.hero {
+  /* Anchors the hero in normal flow, without absolute positioning. */
+  position: relative;
+  padding: 12px 16px 36px;
+}
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+h2 {
+  font-size: 20px;
+}
+.hero-description {
+  text-align: left;
+  margin-bottom: 36px;
+}
+.btn-primary {
+  background-color: var(--site-blue);
+  border-color: var(--site-blue);
+}
+.main-cta {
+  padding: 14px 22px;
+  font-weight: 700;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 34px;
+}
+.card {
+  border-color: var(--site-border);
+  border-radius: 5px;
+}
+
+.feature-card {
+  padding: 22px 26px 28px;
+}
+
+.feature-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 18px;
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.approval-icon {
+  color: #fff;
+  background-color: #13a344;
+  border-radius: 50%;
+  font-size: 28px;
+}
+
+.calendar-icon {
+  color: #9634e8;
+}
+
+.feature-card h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.feature-card p {
+  text-align: left;
+  margin: 0;
+  font-size: 14px;
+}
+
+.calculator {
+  background-color: #f8f9fa;
+  padding: 20px 18px;
+}
+
+.calculator h2 {
+  margin-bottom: 18px;
+  font-size: 18px;
+}
+
+.form-label {
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.payment-result {
+  margin-top: 30px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.bottom-cta {
+  padding: 36px 0 22px;
+}
+
+.bottom-cta h2 {
+  margin-bottom: 22px;
+  font-weight: 700;
+}
+
+#contact {
+  padding: 18px 0 24px;
+  scroll-margin-top: 20px;
+}
+
+.site-footer {
+  margin: 0 15px;
+  padding: 10px 12px 20px;
+  border-top: 1px solid #ced4da;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .header-inner { justify-content: center; }
+  .feature-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .hero { padding-top: 24px; }
+  h1 { font-size: 26px; }
+}
+
+@media (max-width: 576px) {
+  .header-inner { padding: 18px 0; }
+  .nav-links { justify-content: center; gap: 12px; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .hero { padding: 24px 0; }
+  .hero-description { margin-bottom: 24px; }
+  h1 { font-size: 24px; }
+  .feature-card { padding: 22px; }
+  .calculator { padding: 18px 14px; }
+}
