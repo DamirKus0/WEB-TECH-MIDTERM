@@ -43,6 +43,7 @@ a {
 .page-content {
   max-width: 900px;
 }
+.application-page { max-width: 1050px; padding-top: 18px; padding-bottom: 22px; }
 .hero {
   /* Anchors the hero in normal flow, without absolute positioning. */
   position: relative;
