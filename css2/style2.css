@@ -72,6 +72,15 @@ h1 { font-size: 1.75rem; }
 .card { border-color: var(--bs-border-color); }
 .status-pending { color: #996000; }
 
+.loan-details { max-width: 936px; }
+.loan-information p { margin-bottom: 0.75rem; }
+.repayment-table { min-width: 350px; white-space: nowrap; }
+.repayment-table td.status-pending { color: #996000; }
+.table-responsive:focus-visible {
+  outline: 3px solid #1756d1;
+  outline-offset: 3px;
+}
+
 .loan-calculator {
   position: relative;
   background-color: #f8f9fa;
@@ -95,7 +104,7 @@ h1 { font-size: 1.75rem; }
   --bs-btn-hover-border-color: #117a39;
 }
 
-#profile-demo { scroll-margin-top: 1rem; }
+#profile-demo, #payment-demo, #privacy, #terms { scroll-margin-top: 1rem; }
 a:focus-visible, button:focus-visible {
   outline: 3px solid #1756d1;
   outline-offset: 3px;

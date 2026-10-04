@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View demo loan ML001, its repayment schedule, terms and conditions, and privacy notice.">
+  <title>Loan Details | Micro-Loan Platform</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="css2/style2.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container-fluid site-nav">
+      <a class="site-brand" href="index.html">Micro-Loan Platform</a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links list-unstyled mb-0">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="apply.html">Apply for Loan</a></li>
+          <li><a href="loans.html">My Loans</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <main class="container page-content loan-details">
+    <h1 class="section-title mb-4">Loan Details</h1>
+
+    <div class="row g-3 mb-4">
+      <div class="col-12 col-md-6">
+        <section class="card loan-information h-100 p-3" aria-labelledby="information-heading">
+          <h2 id="information-heading" class="card-title mb-3">Loan Information</h2>
+          <p>Loan ID: <strong>ML001</strong></p>
+          <p>Amount: <strong>$1,000</strong></p>
+          <p>Interest Rate: <strong>5% annual simple interest</strong></p>
+          <p>Term: <strong>12 months</strong></p>
+          <p>Status: <strong class="text-success">Approved</strong></p>
+          <p>Disbursement Date: <strong><time datetime="2026-01-15">2026-01-15</time></strong></p>
+          <p>First Repayment Date: <strong><time datetime="2026-02-15">2026-02-15</time></strong></p>
+          <p class="mb-0">Final Due Date: <strong><time datetime="2027-01-15">2027-01-15</time></strong></p>
+        </section>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <section class="card h-100 p-3" aria-labelledby="schedule-heading">
+          <h2 id="schedule-heading" class="card-title mb-3">Repayment Schedule</h2>
+          <div class="table-responsive" tabindex="0" role="region" aria-label="Repayment schedule, scroll horizontally on small screens">
+            <table class="table repayment-table align-middle mb-0">
+              <caption class="caption-top pt-0">first 4 of 12 payments</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Payment #</th>
+                  <th scope="col">Due Date</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" class="fw-normal">1</th>
+                  <td><time datetime="2026-02-15">2026-02-15</time></td>
+                  <td>$87.50</td>
+                  <td class="text-success">Paid</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="fw-normal">2</th>
+                  <td><time datetime="2026-03-15">2026-03-15</time></td>
+                  <td>$87.50</td>
+                  <td class="text-success">Paid</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="fw-normal">3</th>
+                  <td><time datetime="2026-04-15">2026-04-15</time></td>
+                  <td>$87.50</td>
+                  <td class="text-danger">Overdue</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="fw-normal">4</th>
+                  <td><time datetime="2026-05-15">2026-05-15</time></td>
+                  <td>$87.50</td>
+                  <td class="status-pending">Upcoming</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <section id="terms" class="card p-3 mb-4" aria-labelledby="terms-heading">
+      <h2 id="terms-heading" class="card-title mb-3">Terms and Conditions</h2>
+      <ol class="ps-3 mb-0">
+        <li class="mb-3">All repayments must be made on or before the due date.</li>
+        <li class="mb-3">Late payments may incur a penalty fee of 2% of the outstanding amount.</li>
+        <li class="mb-3">Early repayment is permitted without penalty.</li>
+        <li class="mb-3">The interest rate is fixed for the entire loan term.</li>
+        <li>In case of default, the lender reserves the right to take legal action.</li>
+      </ol>
+    </section>
+
+    <section id="privacy" class="card p-3 mb-4" aria-labelledby="privacy-heading">
+      <h2 id="privacy-heading" class="card-title">Privacy Notice</h2>
+      <p class="mb-0">This is a static educational demo. Loan details are sample data. This page does not collect or store personal information or payment details.</p>
+    </section>
+
+    <div class="text-center mb-3">
+      <a class="btn btn-primary px-3 py-2" href="#payment-demo">Make a Payment</a>
+    </div>
+    <aside id="payment-demo" class="alert alert-info mb-0" aria-label="Payment demo">
+      Demo only — payments are not processed.
+    </aside>
+  </main>
+
+  <footer class="site-footer text-center">
+    <p class="mb-1">© 2026 Micro-Loan Platform. All rights reserved.</p>
+    <p class="mb-0"><a href="loan-details.html#privacy">Privacy Policy</a> <span aria-hidden="true">|</span> <a href="loan-details.html#terms">Terms of Service</a></p>
+  </footer>
+</body>
+</html>
