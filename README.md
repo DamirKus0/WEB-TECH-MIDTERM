@@ -24,4 +24,4 @@ Open `index.html` in your browser. No installation or build tools are required. 
 - `css/style.css` — Custom styles.
 - `css2/style2.css` — Dashboard and loan details styles.
 
-Built with HTML5, CSS3, and Bootstrap 5.3.3. This is a static educational demo: calculations, payments, and application processing are not implemented.
+
