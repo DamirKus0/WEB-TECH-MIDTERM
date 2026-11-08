@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Help &amp; FAQ for the Micro-Loan Platform student demonstration.">
+  <title>Help &amp; FAQ | Micro-Loan Platform</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/common.css" rel="stylesheet">
+  <link href="css/public.css" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container-fluid header-inner">
+      <a class="brand" href="index.html">Micro-Loan Platform</a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="apply.html">Apply for Loan</a></li>
+          <li><a href="loans.html">My Loans</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="help.html" aria-current="page">Help</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="container help-page">
+    <h1>Help &amp; FAQ</h1>
+    <p class="demo-notice">Student demonstration only. No real loans, decisions, or payments are processed.</p>
+    <p>Find answers about applications, loan calculations, and demonstration data.</p>
+    <div class="row align-items-end mb-3">
+      <div class="col-12 col-sm mb-2">
+        <label class="form-label" for="faq-search">Search questions and answers</label>
+        <input class="form-control" id="faq-search" type="search" placeholder="Try: payment or pending" aria-controls="faq-list">
+      </div>
+      <div class="col-12 col-sm-auto mb-2">
+        <button class="btn btn-outline-primary" id="clear-faq" type="button">Clear search</button>
+      </div>
+    </div>
+    <p class="small text-secondary" id="faq-count" aria-live="polite"></p>
+    <p id="faq-status" role="status">Questions could not be loaded. Check your internet connection and reload the page.</p>
+    <div id="faq-list"></div>
+    <p id="faq-empty" class="alert alert-info" role="status" style="display: none;">No questions found. Try another search.</p>
+    <noscript><p>Enable JavaScript to search and read the FAQ.</p></noscript>
+  </main>
+  <footer class="site-footer text-center">
+    <p class="mb-1">© 2026 Micro-Loan Platform. All rights reserved.</p>
+    <nav aria-label="Legal navigation">
+      <a href="loan-details.html#privacy">Privacy Policy</a>
+      <span aria-hidden="true"> | </span>
+      <a href="loan-details.html#terms">Terms of Service</a>
+    </nav>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+  <script src="js/help.js" defer></script>
+</body>
+</html>
