@@ -30,7 +30,7 @@ function isValidTerm(value) {
   return term >= 1 && term <= 24 && term % 1 === 0;
 }
 
-function formatMoney(amount) {
+function formatPaymentAmount(amount) {
   return '$' + amount.toFixed(2);
 }
 
@@ -71,9 +71,9 @@ if (calculatorForm) {
         }
       }
 
-      document.getElementById('loan-interest').textContent = formatMoney(loan.interest);
-      document.getElementById('loan-total').textContent = formatMoney(loan.total);
-      document.getElementById('monthly-payment').textContent = formatMoney(loan.monthlyPayment);
+      document.getElementById('loan-interest').textContent = formatPaymentAmount(loan.interest);
+      document.getElementById('loan-total').textContent = formatPaymentAmount(loan.total);
+      document.getElementById('monthly-payment').textContent = formatPaymentAmount(loan.monthlyPayment);
       applyLink.href = 'apply.html?amount=' + amount + '&term=' + term;
       results.hidden = false;
       applyLink.hidden = false;
