@@ -1,5 +1,3 @@
-"use strict";
-
 function renderPayments(hidePaid) {
   const tableBody = document.querySelector("#payments-list");
   const statusClasses = {
@@ -33,7 +31,6 @@ $("#hide-paid").on("change", function (event) {
   renderPayments(event.target.checked);
 });
 
-// Keep terms readable without JavaScript; collapse them only after jQuery loads.
 $(".terms-content").hide();
 $("#terms-toggle").prop("hidden", false);
 $.fx.off = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -43,7 +40,6 @@ $("#terms-toggle").on("click", function () {
   const content = button.closest(".card").find(".terms-content");
   const isExpanded = button.attr("aria-expanded") === "true";
 
-  // Finish the previous effect so rapid clicks do not queue animations.
   content.stop(true, true);
   if (isExpanded) {
     content.slideUp(150);

@@ -1,5 +1,3 @@
-"use strict";
-
 function renderLoans(status) {
   const list = document.querySelector("#loans-list");
   list.replaceChildren();
@@ -9,12 +7,9 @@ function renderLoans(status) {
     if (status !== "all" && loan.status !== status) {
       continue;
     }
-
     const column = document.createElement("div");
     column.className = "col-12 col-md-6 col-lg-4";
     const statusClass = loan.status === "approved" ? "text-success" : "status-pending";
-
-    // Only fixed demo values from data.js are inserted into this template.
     column.innerHTML = `
       <article class="card h-100 p-3">
         <h3 class="card-title">Loan ID: ${loan.id}</h3>
