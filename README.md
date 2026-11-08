@@ -11,7 +11,7 @@
 | №1 | `index.html`, `apply.html`, `help.html`, `css/common.css`, `css/public.css`, `js/public.js`, `js/application.js`, `js/help.js`, README |
 | №2 | `loans.html`, `loan-details.html`, `profile.html`, `css2/style2.css`, `js/store.js`, `js/dashboard.js`, `js/loan-details.js`, `js/profile.js`, `docs/testing.md` |
 
-`success.html` и `css/style.css` сохранены как файлы midterm. Новая заявка показывает результат на `apply.html`, без перехода на старую статическую страницу подтверждения.
+`success.html` и `css/style.css` сохранены как файлы midterm участника №1. Страницу можно открыть отдельно как статический пример подтверждения: на ней явно указано, что открытие не отправляет и не сохраняет заявку. Новая заявка показывает результат на `apply.html`, без перехода на старую статическую страницу подтверждения.
 
 ## Запуск
 
