@@ -1,0 +1,40 @@
+/* Styles for Home, Apply and Help. Shared styles are in common.css. */
+.page-content { max-width: 900px; }
+.application-page { max-width: 1050px; padding-top: 24px; padding-bottom: 32px; }
+.help-page { max-width: 900px; padding-top: 24px; padding-bottom: 32px; }
+.hero { position: relative; padding: 24px 16px 36px; }
+.hero-description { text-align: left; margin-bottom: 26px; }
+.main-cta { padding: 14px 22px; font-weight: 700; }
+.feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-bottom: 28px; }
+.feature-card { padding: 22px 26px 28px; }
+.feature-icon { display: block; margin: 0 auto 18px; font-size: 38px; line-height: 1; }
+.calendar-icon { color: #9634e8; }
+.feature-card h2 { font-size: 18px; font-weight: 700; margin-bottom: 14px; }
+.feature-card p { text-align: left; margin: 0; font-size: 14px; }
+.calculator { background-color: #f8f9fa; padding: 20px 18px; }
+.calculator h2 { margin-bottom: 18px; }
+.calculation-results { margin: 24px 0 16px; }
+.calculation-results dt { font-weight: 400; }
+.calculation-results dd { font-weight: 700; font-size: 18px; }
+.information-section { padding: 8px 0 24px; }
+.application-steps { padding-left: 22px; margin-bottom: 0; }
+.application-steps li { margin-bottom: 8px; }
+.bottom-cta { padding: 36px 0 22px; }
+.bottom-cta h2 { margin-bottom: 22px; font-weight: 700; }
+#contact { padding: 18px 0 24px; scroll-margin-top: 20px; }
+.faq-item { margin-bottom: 12px; }
+.faq-question { width: 100%; padding: 16px; display: flex; justify-content: space-between; gap: 12px; text-align: left; border: 0; border-radius: 5px; background: #f8f9fa; color: var(--site-text); font-weight: 700; }
+.faq-question[aria-expanded="true"] { color: var(--site-blue); }
+.faq-answer { padding: 16px; }
+.faq-answer p { margin: 0; }
+
+@media (max-width: 768px) {
+  .feature-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+}
+
+@media (max-width: 576px) {
+  .feature-grid { grid-template-columns: 1fr; }
+  .hero { padding: 24px 0; }
+  .feature-card { padding: 22px; }
+  .calculator { padding: 18px 14px; }
+}
