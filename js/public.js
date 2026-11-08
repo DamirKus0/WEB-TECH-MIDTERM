@@ -1,25 +1,37 @@
 // Shared field helpers are also used by application.js.
 function showFieldError(field, message) {
   const error = document.getElementById(field.id + '-error');
-  field.classList.toggle('is-invalid', message !== '');
   field.setAttribute('aria-invalid', message ? 'true' : 'false');
   if (error) error.textContent = message;
 }
 
 function validateLoanFields(amountField, termField) {
-  const amount = Number(amountField.value);
-  const term = Number(termField.value);
-  const amountError = !Number.isFinite(amount) || amount < 100 || amount > 5000
-    ? 'Enter an amount from $100 to $5,000.' : '';
-  const termError = !Number.isInteger(term) || term < 1 || term > 24
-    ? 'Enter a whole number of months from 1 to 24.' : '';
+  let amountError = '';
+  let termError = '';
+  if (!isValidAmount(amountField.value)) {
+    amountError = 'Enter an amount from $100 to $5,000.';
+  }
+  if (!isValidTerm(termField.value)) {
+    termError = 'Enter a whole number of months from 1 to 24.';
+  }
   showFieldError(amountField, amountError);
   showFieldError(termField, termError);
   return !amountError && !termError;
 }
 
+function isValidAmount(value) {
+  const amount = Number(value);
+  return amount >= 100 && amount <= 5000;
+}
+
+function isValidTerm(value) {
+  const term = Number(value);
+  // A whole number has no remainder after division by 1.
+  return term >= 1 && term <= 24 && term % 1 === 0;
+}
+
 function formatMoney(amount) {
-  return amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+  return '$' + amount.toFixed(2);
 }
 
 const calculatorForm = document.getElementById('loan-calculator');
@@ -51,9 +63,13 @@ if (calculatorForm) {
       const amount = Number(amountField.value);
       const term = Number(termField.value);
       const loan = window.MicroLoan.calculateLoan(amount, term, 0.05);
-      if (![loan.interest, loan.total, loan.monthlyPayment].every(function (value) {
-        return Number.isFinite(value) && value >= 0;
-      })) throw new Error('Invalid calculation result');
+      const values = [loan.interest, loan.total, loan.monthlyPayment];
+      for (let i = 0; i < values.length; i++) {
+        if (!(values[i] >= 0 && values[i] < Infinity)) {
+          message.textContent = 'The calculator returned an invalid result. Please try again.';
+          return;
+        }
+      }
 
       document.getElementById('loan-interest').textContent = formatMoney(loan.interest);
       document.getElementById('loan-total').textContent = formatMoney(loan.total);

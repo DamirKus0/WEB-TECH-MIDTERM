@@ -17,29 +17,34 @@ if (applicationForm) {
   function validateApplication() {
     showFieldError(firstName, firstName.value.trim().length < 2 ? 'Enter a first name with at least 2 characters.' : '');
     showFieldError(lastName, lastName.value.trim().length < 2 ? 'Enter a last name with at least 2 characters.' : '');
-    showFieldError(email, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()) ? '' : 'Enter a valid email address.');
+    // type="email" checks the format; JavaScript displays our own error message.
+    const validEmail = email.value.trim() !== '' && !email.validity.typeMismatch;
+    showFieldError(email, validEmail ? '' : 'Enter a valid email address.');
     validateLoanFields(amount, term);
-    showFieldError(purpose, allowedPurposes.includes(purpose.value) ? '' : 'Choose a loan purpose.');
+    let validPurpose = false;
+    for (let i = 0; i < allowedPurposes.length; i++) {
+      if (purpose.value === allowedPurposes[i]) validPurpose = true;
+    }
+    showFieldError(purpose, validPurpose ? '' : 'Choose a loan purpose.');
     showFieldError(consent, consent.checked ? '' : 'Confirm that you agree to the demonstration terms.');
     return applicationForm.querySelector('[aria-invalid="true"]') === null;
   }
 
-  // Treat URL values as untrusted: accept each only after checking its range.
+  // URLSearchParams reads amount and term from the calculator link.
+  // The same range checks are used here and in the calculator.
   const parameters = new URLSearchParams(window.location.search);
   const urlAmount = parameters.get('amount');
   const urlTerm = parameters.get('term');
   if (urlAmount !== null) {
-    const value = Number(urlAmount);
-    if (urlAmount.trim() !== '' && Number.isFinite(value) && value >= 100 && value <= 5000) {
-      amount.value = value;
+    if (isValidAmount(urlAmount)) {
+      amount.value = Number(urlAmount);
     } else {
       showFieldError(amount, 'The amount in the link is invalid. Enter $100 to $5,000.');
     }
   }
   if (urlTerm !== null) {
-    const value = Number(urlTerm);
-    if (urlTerm.trim() !== '' && Number.isInteger(value) && value >= 1 && value <= 24) {
-      term.value = value;
+    if (isValidTerm(urlTerm)) {
+      term.value = Number(urlTerm);
     } else {
       showFieldError(term, 'The term in the link is invalid. Enter 1 to 24 whole months.');
     }
@@ -88,8 +93,9 @@ if (applicationForm) {
       // Only the data module can confirm saving and provide the unique ID.
       submitted = true;
       submitButton.disabled = true;
-      for (const field of applicationForm.querySelectorAll('input, select')) {
-        field.disabled = true;
+      const fields = applicationForm.querySelectorAll('input, select');
+      for (let i = 0; i < fields.length; i++) {
+        fields[i].disabled = true;
       }
       message.className = 'alert alert-success mt-3';
       message.textContent = 'Demo application ' + saved.id + ' saved successfully. Status: pending.';

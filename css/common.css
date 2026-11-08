@@ -58,6 +58,7 @@ button:focus-visible {
 .form-label { margin-bottom: 4px; font-size: 14px; }
 .form-control:focus, .form-select:focus { border-color: var(--site-blue); }
 .field-error { color: #b02a37; font-size: 14px; margin-top: 4px; }
+[aria-invalid="true"] { border-color: #b02a37; }
 .demo-notice { background: #f8f9fa; border: 1px solid var(--site-border); padding: 12px; border-radius: 5px; }
 
 .site-footer {
