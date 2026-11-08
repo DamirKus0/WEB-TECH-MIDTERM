@@ -1,0 +1,139 @@
+.site-header {
+  margin: 0;
+  background: #fff;
+  border-bottom: 1px solid #e7ecf3;
+  box-shadow: 0 3px 16px rgb(15 23 42 / 3%);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.navbar-shell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 1200px;
+  min-height: 88px;
+  margin: 0 auto;
+  padding: 16px 24px;
+}
+
+.nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  color: #17243b;
+  text-decoration: none;
+}
+
+.nav-brand:hover { color: #2563eb; }
+.nav-brand-mark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.nav-brand-name { display: block; font-size: 18px; font-weight: 700; letter-spacing: -0.5px; }
+.nav-brand-caption { display: block; color: #64748b; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+.primary-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.primary-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  color: #536176;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 150ms, color 150ms;
+}
+
+.primary-links a:hover { background: #f1f5f9; color: #17243b; }
+.primary-links a[aria-current] { background: #edf3ff; color: #1d4ed8; }
+.primary-links .nav-apply { margin-left: 16px; }
+.primary-links .nav-cta {
+  gap: 12px;
+  padding: 10px 20px;
+  background: #2563eb;
+  color: #fff;
+  box-shadow: 0 3px 8px rgb(37 99 235 / 15%);
+}
+
+.primary-links .nav-cta:hover,
+.primary-links .nav-cta[aria-current] { background: #1d4ed8; color: #fff; }
+.site-header a:focus-visible,
+.nav-menu-toggle:focus-visible + .nav-toggle { outline: 3px solid #2563eb; outline-offset: 4px; }
+.nav-menu-toggle { display: none; }
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid #dde5ef;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #17243b;
+  cursor: pointer;
+  margin: 0;
+}
+
+.nav-toggle span {
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 150ms, opacity 150ms;
+}
+
+.nav-menu-toggle:checked + .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-menu-toggle:checked + .nav-toggle span:nth-child(2) { opacity: 0; }
+.nav-menu-toggle:checked + .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 991px) {
+  .navbar-shell { flex-wrap: wrap; gap: 0; min-height: 76px; padding: 16px 20px; }
+  /* Keep the checkbox focusable; its label is the visible burger. */
+  .nav-menu-toggle {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .nav-toggle { display: flex; }
+  .primary-nav { display: none; flex-basis: 100%; padding-top: 16px; }
+  .nav-menu-toggle:checked ~ .primary-nav { display: block; }
+  .primary-links { display: grid; gap: 4px; padding-top: 12px; border-top: 1px solid #e7ecf3; }
+  .primary-links a { justify-content: flex-start; padding: 12px 14px; }
+  .primary-links .nav-apply { margin: 8px 0 0; }
+  .primary-links .nav-cta { justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primary-links a, .nav-toggle span { transition: none; }
+}

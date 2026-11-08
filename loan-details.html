@@ -11,17 +11,27 @@
   <script src="js/store.js" defer></script>
   <script src="js/data.js" defer></script>
   <script src="js/loan-details.js" defer></script>
+  <link rel="stylesheet" href="css/navbar.css">
 </head>
 <body>
   <header class="site-header">
-    <div class="container-fluid site-nav">
-      <a class="site-brand" href="index.html">Micro-Loan Platform</a>
-      <nav aria-label="Main navigation">
-        <ul class="nav-links list-unstyled mb-0">
+    <div class="navbar-shell">
+      <a class="nav-brand" href="index.html" aria-label="Micro-Loan Platform home">
+        <span class="nav-brand-mark" aria-hidden="true">ML</span>
+        <span><span class="nav-brand-name">Micro-Loan</span><span class="nav-brand-caption">Platform</span></span>
+      </a>
+      <input class="nav-menu-toggle" id="nav-menu-toggle" type="checkbox" aria-label="Toggle navigation menu" aria-controls="primary-navigation">
+      <label class="nav-toggle" for="nav-menu-toggle">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </label>
+      <nav id="primary-navigation" class="primary-nav" aria-label="Main navigation">
+        <ul class="primary-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="apply.html">Apply for Loan</a></li>
-          <li><a href="loans.html">My Loans</a></li>
+          <li><a href="loans.html" aria-current="location">My Loans</a></li>
+          <li><a href="help.html">Help</a></li>
           <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="loans.html#profile-demo">Profile</a></li>
+          <li class="nav-apply"><a class="nav-cta" href="apply.html">Apply for Loan<span aria-hidden="true">&rarr;</span></a></li>
         </ul>
       </nav>
     </div>
