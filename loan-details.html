@@ -7,6 +7,7 @@
   <title>Loan Details | Micro-Loan Platform</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="css2/style2.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
   <script src="js/data.js" defer></script>
   <script src="js/loan-details.js" defer></script>
 </head>
@@ -72,13 +73,16 @@
 
     <section id="terms" class="card p-3 mb-4" aria-labelledby="terms-heading">
       <h2 id="terms-heading" class="card-title mb-3">Terms and Conditions</h2>
-      <ol class="ps-3 mb-0">
+      <button id="terms-toggle" class="btn btn-primary align-self-start" type="button" aria-controls="terms-content" aria-expanded="false" hidden>Show terms</button>
+      <div id="terms-content" class="terms-content">
+      <ol class="ps-3 mt-3 mb-0">
         <li class="mb-3">All repayments must be made on or before the due date.</li>
         <li class="mb-3">Late payments may incur a penalty fee of 2% of the outstanding amount.</li>
         <li class="mb-3">Early repayment is permitted without penalty.</li>
         <li class="mb-3">The interest rate is fixed for the entire loan term.</li>
         <li>In case of default, the lender reserves the right to take legal action.</li>
       </ol>
+      </div>
     </section>
 
     <section id="privacy" class="card p-3 mb-4" aria-labelledby="privacy-heading">

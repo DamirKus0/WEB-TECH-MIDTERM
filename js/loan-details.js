@@ -29,8 +29,30 @@ function renderPayments(hidePaid) {
     `Showing ${visibleCount} of ${payments.length} sample payments.`;
 }
 
-document.querySelector("#hide-paid").addEventListener("change", function (event) {
+$("#hide-paid").on("change", function (event) {
   renderPayments(event.target.checked);
+});
+
+// Keep terms readable without JavaScript; collapse them only after jQuery loads.
+$(".terms-content").hide();
+$("#terms-toggle").prop("hidden", false);
+$.fx.off = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+$("#terms-toggle").on("click", function () {
+  const button = $(this);
+  const content = button.closest(".card").find(".terms-content");
+  const isExpanded = button.attr("aria-expanded") === "true";
+
+  // Finish the previous effect so rapid clicks do not queue animations.
+  content.stop(true, true);
+  if (isExpanded) {
+    content.slideUp(150);
+  } else {
+    content.slideDown(150);
+  }
+
+  button.attr("aria-expanded", String(!isExpanded));
+  button.text(isExpanded ? "Show terms" : "Hide terms");
 });
 
 renderPayments(false);
