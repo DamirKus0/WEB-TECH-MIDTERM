@@ -1,4 +1,3 @@
-// Shared field helpers are also used by application.js.
 function showFieldError(field, message) {
   const error = document.getElementById(field.id + '-error');
   field.setAttribute('aria-invalid', message ? 'true' : 'false');
@@ -26,7 +25,6 @@ function isValidAmount(value) {
 
 function isValidTerm(value) {
   const term = Number(value);
-  // A whole number has no remainder after division by 1.
   return term >= 1 && term <= 24 && term % 1 === 0;
 }
 
@@ -59,7 +57,6 @@ if (calculatorForm) {
     }
 
     try {
-      // The formula belongs only to store.js; do not repeat it here.
       const amount = Number(amountField.value);
       const term = Number(termField.value);
       const loan = window.MicroLoan.calculateLoan(amount, term, 0.05);

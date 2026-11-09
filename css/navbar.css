@@ -113,7 +113,6 @@
 
 @media (max-width: 991px) {
   .navbar-shell { flex-wrap: wrap; gap: 0; min-height: 76px; padding: 16px 20px; }
-  /* Keep the checkbox focusable; its label is the visible burger. */
   .nav-menu-toggle {
     display: block;
     position: absolute;

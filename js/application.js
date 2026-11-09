@@ -17,7 +17,6 @@ if (applicationForm) {
   function validateApplication() {
     showFieldError(firstName, firstName.value.trim().length < 2 ? 'Enter a first name with at least 2 characters.' : '');
     showFieldError(lastName, lastName.value.trim().length < 2 ? 'Enter a last name with at least 2 characters.' : '');
-    // type="email" checks the format; JavaScript displays our own error message.
     const validEmail = email.value.trim() !== '' && !email.validity.typeMismatch;
     showFieldError(email, validEmail ? '' : 'Enter a valid email address.');
     validateLoanFields(amount, term);
@@ -30,8 +29,6 @@ if (applicationForm) {
     return applicationForm.querySelector('[aria-invalid="true"]') === null;
   }
 
-  // URLSearchParams reads amount and term from the calculator link.
-  // The same range checks are used here and in the calculator.
   const parameters = new URLSearchParams(window.location.search);
   const urlAmount = parameters.get('amount');
   const urlTerm = parameters.get('term');
@@ -90,7 +87,6 @@ if (applicationForm) {
 
     try {
       const saved = window.MicroLoan.addApplication(data);
-      // Only the data module can confirm saving and provide the unique ID.
       submitted = true;
       submitButton.disabled = true;
       const fields = applicationForm.querySelectorAll('input, select');

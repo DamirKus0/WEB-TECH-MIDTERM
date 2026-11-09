@@ -1,4 +1,3 @@
-/* Styles for Home, Apply and Help. Shared styles are in common.css. */
 .page-content { max-width: 900px; }
 .application-page { max-width: 1050px; padding-top: 24px; padding-bottom: 32px; }
 .help-page { max-width: 900px; padding-top: 24px; padding-bottom: 32px; }

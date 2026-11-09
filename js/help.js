@@ -24,7 +24,6 @@ if (window.jQuery && document.getElementById('faq-list')) {
       if (fullText.indexOf(searchText) === -1) continue;
       count += 1;
 
-      // Create the tags first, then insert text with .text(), not as HTML.
       const article = $('<article class="card faq-item"></article>');
       const heading = $('<h2 class="mb-0 fs-6"></h2>');
       const button = $('<button type="button" class="faq-question"></button>');
@@ -57,7 +56,6 @@ if (window.jQuery && document.getElementById('faq-list')) {
     const button = $(this);
     const answer = button.closest('.faq-item').find('.faq-answer');
     const isOpen = button.attr('aria-expanded') === 'true';
-    // stop(true, true) prevents queued animations after repeated clicks.
     answer.stop(true, true);
     if (isOpen) {
       button.attr('aria-expanded', 'false');

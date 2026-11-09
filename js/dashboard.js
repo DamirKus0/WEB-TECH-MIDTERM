@@ -15,7 +15,6 @@ function renderLoans(status) {
     const column = document.createElement("div");
     column.className = "col-12 col-md-6 col-lg-4";
     const statusClass = loan.status === "pending" ? "status-pending" : "text-success";
-    // Keep the HTML structure static; insert stored values as text.
     column.innerHTML = `
       <article class="card h-100 p-3">
         <h3 class="card-title"></h3>

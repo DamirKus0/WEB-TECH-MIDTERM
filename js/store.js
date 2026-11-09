@@ -1,4 +1,3 @@
-// Shared demo data and calculation. No server or real payments are used.
 const loanStorageKey = 'microloan.loans.v1';
 
 function calculateLoan(amount, termMonths, annualRate) {
@@ -60,7 +59,6 @@ function addApplication(data) {
       typeof data.lastName !== 'string' || data.lastName.trim().length < 2) {
     throw new Error('Enter a first name and last name.');
   }
-  // Use the same browser email-format check as the application form.
   const emailField = document.createElement('input');
   emailField.type = 'email';
   emailField.value = typeof data.email === 'string' ? data.email.trim() : '';
@@ -75,7 +73,6 @@ function addApplication(data) {
     const number = Number(records[i].id.slice(2));
     if (number >= nextNumber) nextNumber = number + 1;
   }
-  // Padding keeps IDs consistent with the original ML001 and ML002 examples.
   const record = {
     id: 'ML' + String(nextNumber).padStart(3, '0'),
     firstName: data.firstName.trim(),
@@ -91,7 +88,6 @@ function addApplication(data) {
     dueDate: null
   };
   records.push(record);
-  // Return only after writing succeeds; errors are handled by the form.
   localStorage.setItem(loanStorageKey, JSON.stringify(records));
   return record;
 }
