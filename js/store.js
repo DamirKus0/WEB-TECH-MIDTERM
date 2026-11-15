@@ -92,9 +92,42 @@ function addApplication(data) {
   return record;
 }
 
+function updateApplication(id, changes) {
+  const records = getLoans();
+  const record = records.find(function (loan) { return loan.id === id; });
+  if (!record) throw new Error('Application was not found.');
+  if (record.status !== 'pending') throw new Error('Only pending applications can be edited.');
+
+  calculateLoan(changes.amount, changes.termMonths, record.annualRate);
+  if (!(changes.purpose === 'education' || changes.purpose === 'business' || changes.purpose === 'personal' || changes.purpose === 'other')) {
+    throw new Error('Choose a loan purpose.');
+  }
+
+  // Only these fields can change; identity, status and dates stay the same.
+  record.amount = changes.amount;
+  record.termMonths = changes.termMonths;
+  record.purpose = changes.purpose;
+  localStorage.setItem(loanStorageKey, JSON.stringify(records));
+  return record;
+}
+
+function deleteApplication(id) {
+  const records = getLoans();
+  const index = records.findIndex(function (loan) { return loan.id === id; });
+  if (index === -1) throw new Error('Application was not found.');
+  const record = records[index];
+  if (record.status !== 'pending') throw new Error('Only pending applications can be deleted.');
+
+  records.splice(index, 1);
+  localStorage.setItem(loanStorageKey, JSON.stringify(records));
+  return record;
+}
+
 window.MicroLoan = {
   calculateLoan: calculateLoan,
   getLoans: getLoans,
   getLoanById: getLoanById,
-  addApplication: addApplication
+  addApplication: addApplication,
+  updateApplication: updateApplication,
+  deleteApplication: deleteApplication
 };

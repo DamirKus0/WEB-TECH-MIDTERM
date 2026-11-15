@@ -73,10 +73,44 @@
           <option value="all">All loans</option>
           <option value="approved">Approved</option>
           <option value="pending">Pending</option>
+          <option value="repaid">Repaid</option>
         </select>
       </div>
       <p id="loans-count" class="small text-secondary" role="status"></p>
       <div id="loans-list" class="row g-3"></div>
+      <p id="loan-action-message" class="mt-3 mb-0" role="status"></p>
+      <section id="loan-editor" class="card p-3 mt-3" aria-labelledby="edit-heading" hidden>
+        <h3 id="edit-heading" class="card-title">Edit application <span id="edit-loan-id"></span></h3>
+        <form id="edit-application" novalidate>
+          <div class="row">
+            <div class="col-12 col-md-6 mb-3">
+              <label class="form-label" for="edit-amount">Loan Amount ($)</label>
+              <input class="form-control" id="edit-amount" name="amount" type="number" min="100" max="5000" step="0.01" required aria-describedby="edit-amount-error">
+              <p class="field-error mb-0" id="edit-amount-error"></p>
+            </div>
+            <div class="col-12 col-md-6 mb-3">
+              <label class="form-label" for="edit-term">Loan Term (months)</label>
+              <input class="form-control" id="edit-term" name="termMonths" type="number" min="1" max="24" step="1" required aria-describedby="edit-term-error">
+              <p class="field-error mb-0" id="edit-term-error"></p>
+            </div>
+            <div class="col-12 mb-3">
+              <label class="form-label" for="edit-purpose">Purpose of Loan</label>
+              <select class="form-select" id="edit-purpose" name="purpose" required aria-describedby="edit-purpose-error">
+                <option value="">Choose a purpose</option>
+                <option value="education">Education</option>
+                <option value="business">Business</option>
+                <option value="personal">Personal</option>
+                <option value="other">Other</option>
+              </select>
+              <p class="field-error mb-0" id="edit-purpose-error"></p>
+            </div>
+          </div>
+          <div class="d-flex flex-wrap gap-2">
+            <button class="btn btn-primary" type="submit">Save changes</button>
+            <button class="btn btn-outline-secondary" id="cancel-edit" type="button">Cancel</button>
+          </div>
+        </form>
+      </section>
       <noscript><p>Please enable JavaScript to view the demo loans.</p></noscript>
     </section>
 
