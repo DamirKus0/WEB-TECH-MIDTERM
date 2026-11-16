@@ -15,7 +15,6 @@ function readSavedCalculations() {
     if (!record || typeof record.id !== 'string' || record.id === '' || record.annualRate !== 0.05) {
       throw new Error('Invalid saved calculation.');
     }
-    // Use the shared function to check saved values; do not repeat the formula.
     const expected = window.MicroLoan.calculateLoan(record.amount, record.termMonths, record.annualRate);
     if (record.interest !== expected.interest || record.total !== expected.total ||
         record.monthlyPayment !== expected.monthlyPayment) {
@@ -58,7 +57,6 @@ function renderSavedCalculations() {
       savedCalculationList.append(item);
     }
   } catch (error) {
-    // Clearing is an explicit action: damaged data is never reset on its own.
     clearCalculationButton.disabled = false;
     savedCalculationMessage.textContent = 'Saved calculations could not be read. Check browser storage, or use Clear saved calculations to remove damaged entries.';
   }
@@ -83,7 +81,6 @@ function removeSavedCalculation(id) {
 if (clearCalculationButton) {
   clearCalculationButton.addEventListener('click', function () {
     try {
-      // Only this key is removed. Applications and the theme are untouched.
       localStorage.removeItem(calculationStorageKey);
       renderSavedCalculations();
       savedCalculationMessage.textContent = 'Saved calculations cleared.';
@@ -100,8 +97,6 @@ const saveCalculationButton = document.getElementById('save-calculation');
 if (saveCalculationButton) {
   saveCalculationButton.addEventListener('click', function () {
     savedCalculationMessage.textContent = '';
-    // Check both the successful result and the current fields, including edits
-    // made without an input event. Stale estimates must not be saved.
     if (!currentCalculation || document.getElementById('calculation-results').hidden ||
         currentCalculation.amount !== Number(document.getElementById('loan-amount').value) ||
         currentCalculation.termMonths !== Number(document.getElementById('loan-term').value)) {

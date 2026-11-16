@@ -12,8 +12,8 @@ if (currencyForm) {
     currencyResult.replaceChildren();
     currencyMessage.textContent = '';
     const amount = Number(currencyAmount.value);
-    if (!(amount > 0 && amount < Infinity)) {
-      showFieldError(currencyAmount, 'Enter a USD amount greater than zero.');
+    if (!(amount >= 0.01 && amount < Infinity)) {
+      showFieldError(currencyAmount, 'Enter a USD amount of at least $0.01.');
       currencyAmount.focus();
       return;
     }
@@ -23,8 +23,6 @@ if (currencyForm) {
     currencyAmount.readOnly = true;
     currencyForm.setAttribute('aria-busy', 'true');
     currencyMessage.textContent = 'Loading exchange rate…';
-
-    // Stop a stalled request so the user can try again.
     const controller = new AbortController();
     const timeout = setTimeout(function () { controller.abort(); }, 12000);
     try {

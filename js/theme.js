@@ -8,8 +8,6 @@ try {
 } catch (error) {
   themeStorageError = true;
 }
-
-// This script runs in head, before the body is displayed.
 document.documentElement.setAttribute('data-bs-theme', selectedTheme);
 
 document.addEventListener('DOMContentLoaded', function () {

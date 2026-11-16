@@ -1,4 +1,3 @@
-/* Loaded last on every page, so existing light styles stay unchanged. */
 html[data-bs-theme="dark"] {
   color-scheme: dark;
   --site-text: #e5e7eb;
@@ -8,6 +7,7 @@ html[data-bs-theme="dark"] {
   --bs-body-color-rgb: 229, 231, 235;
   --bs-body-bg: #101722;
   --bs-secondary-color: #b8c3d1;
+  --bs-secondary-rgb: 184, 195, 209;
   --bs-border-color: #435268;
   --bs-primary-rgb: 147, 197, 253;
   --bs-success-rgb: 106, 218, 155;
@@ -21,4 +21,102 @@ html[data-bs-theme="dark"] {
 html[data-bs-theme="dark"] body {
   color: #e5e7eb;
   background: #101722;
+}
+
+html[data-bs-theme="dark"] h1,
+html[data-bs-theme="dark"] h2,
+html[data-bs-theme="dark"] h3,
+html[data-bs-theme="dark"] .brand,
+html[data-bs-theme="dark"] .site-brand,
+html[data-bs-theme="dark"] .nav-brand {
+  color: #f1f5f9;
+}
+
+html[data-bs-theme="dark"] .card,
+html[data-bs-theme="dark"] .calculator,
+html[data-bs-theme="dark"] .loan-calculator,
+html[data-bs-theme="dark"] .faq-question,
+html[data-bs-theme="dark"] .demo-notice {
+  background-color: #1b2533;
+  color: #e5e7eb;
+  border-color: #435268;
+}
+
+html[data-bs-theme="dark"] .site-header,
+html[data-bs-theme="dark"] .site-footer {
+  background: #101722;
+  border-color: #435268;
+  box-shadow: none;
+}
+
+html[data-bs-theme="dark"] .nav-brand-caption { color: #b8c3d1; }
+html[data-bs-theme="dark"] .primary-links { border-color: #435268; }
+html[data-bs-theme="dark"] .primary-links a { color: #d1dae6; }
+html[data-bs-theme="dark"] .primary-links a:hover,
+html[data-bs-theme="dark"] .primary-links a[aria-current] {
+  color: #bfdbfe;
+  background: #263b59;
+}
+html[data-bs-theme="dark"] .primary-links .nav-cta,
+html[data-bs-theme="dark"] .primary-links .nav-cta[aria-current] {
+  color: #fff;
+  background: #2563eb;
+}
+html[data-bs-theme="dark"] .nav-toggle {
+  background: #1b2533;
+  color: #f1f5f9;
+  border-color: #66768d;
+}
+
+html[data-bs-theme="dark"] .form-control,
+html[data-bs-theme="dark"] .form-select {
+  background-color: #101722;
+  color: #f1f5f9;
+  border-color: #66768d;
+}
+html[data-bs-theme="dark"] .form-control::placeholder { color: #b8c3d1; }
+html[data-bs-theme="dark"] .form-control:disabled,
+html[data-bs-theme="dark"] .form-select:disabled { background-color: #263344; }
+html[data-bs-theme="dark"] .field-error { color: #ffa1ab; }
+html[data-bs-theme="dark"] [aria-invalid="true"] { border-color: #ffa1ab; }
+html[data-bs-theme="dark"] .status-pending,
+html[data-bs-theme="dark"] .repayment-table td.status-pending { color: #ffc876; }
+html[data-bs-theme="dark"] .calendar-icon { color: #c897ff; }
+
+html[data-bs-theme="dark"] .table {
+  --bs-table-bg: #1b2533;
+  --bs-table-color: #e5e7eb;
+  --bs-table-border-color: #435268;
+}
+
+html[data-bs-theme="dark"] .btn-primary {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+}
+html[data-bs-theme="dark"] .btn-primary:hover { background: #1d4ed8; }
+html[data-bs-theme="dark"] .btn-success {
+  background: #117a39;
+  border-color: #117a39;
+  color: #fff;
+}
+html[data-bs-theme="dark"] .btn-outline-primary {
+  --bs-btn-color: #93c5fd;
+  --bs-btn-border-color: #93c5fd;
+  --bs-btn-hover-bg: #2563eb;
+  --bs-btn-hover-border-color: #2563eb;
+  --bs-btn-hover-color: #fff;
+}
+html[data-bs-theme="dark"] .btn-outline-danger {
+  --bs-btn-color: #ffa1ab;
+  --bs-btn-border-color: #ffa1ab;
+  --bs-btn-hover-bg: #9f2032;
+  --bs-btn-hover-border-color: #9f2032;
+  --bs-btn-hover-color: #fff;
+}
+
+html[data-bs-theme="dark"] :focus-visible,
+html[data-bs-theme="dark"] .nav-menu-toggle:focus-visible + .nav-toggle {
+  outline: 3px solid #bfdbfe;
+  outline-offset: 3px;
 }
