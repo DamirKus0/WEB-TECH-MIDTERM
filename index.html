@@ -101,6 +101,25 @@
       <a id="calculator-apply" class="btn btn-primary mt-3 align-self-start" hidden>Apply with this amount and term</a>
     </section>
 
+    <section class="card final-tool mt-4" aria-labelledby="currency-title">
+      <h2 id="currency-title">Amount in tenge</h2>
+      <p>Convert USD to KZT using a reference rate from <a href="https://frankfurter.dev/" target="_blank" rel="noopener noreferrer">Frankfurter</a>. Your loans and repayments remain in USD.</p>
+      <form id="currency-form" novalidate>
+        <label class="form-label" for="currency-amount">Amount in USD</label>
+        <div class="row align-items-start g-2">
+          <div class="col-12 col-sm-8">
+            <input class="form-control" id="currency-amount" name="usd" type="number" min="0.01" step="0.01" value="100" required aria-describedby="currency-amount-error">
+            <p id="currency-amount-error" class="field-error mb-0"></p>
+          </div>
+          <div class="col-12 col-sm-4">
+            <button id="convert-currency" class="btn btn-primary w-100" type="submit">Convert</button>
+          </div>
+        </div>
+      </form>
+      <p id="currency-message" class="mt-3 mb-0" role="status"></p>
+      <div id="currency-result" class="mt-3" aria-live="polite"></div>
+    </section>
+
     <section class="bottom-cta text-center" aria-labelledby="cta-title">
       <h2 id="cta-title">Ready to get started?</h2>
       <p>Join thousands of satisfied customers who have achieved their financial goals with our help.</p>
@@ -124,5 +143,6 @@
   </footer>
   <script src="js/store.js" defer></script>
   <script src="js/public.js" defer></script>
+  <script src="js/currency.js" defer></script>
 </body>
 </html>

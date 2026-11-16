@@ -37,3 +37,6 @@
   .feature-card { padding: 22px; }
   .calculator { padding: 18px 14px; }
 }
+
+/* New final tools keep the same card layout as the calculator. */
+.final-tool { padding: 20px 18px; }
