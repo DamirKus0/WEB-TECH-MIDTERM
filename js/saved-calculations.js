@@ -2,6 +2,7 @@ const calculationStorageKey = 'microloan.calculations.v1';
 const savedCalculationList = document.getElementById('saved-calculation-list');
 const savedCalculationEmpty = document.getElementById('saved-calculation-empty');
 const savedCalculationMessage = document.getElementById('saved-calculation-message');
+const clearCalculationButton = document.getElementById('clear-saved-calculations');
 
 function readSavedCalculations() {
   const saved = localStorage.getItem(calculationStorageKey);
@@ -33,6 +34,7 @@ function renderSavedCalculations() {
   try {
     const records = readSavedCalculations();
     savedCalculationEmpty.hidden = records.length !== 0;
+    clearCalculationButton.disabled = records.length === 0;
     for (let i = 0; i < records.length; i++) {
       const record = records[i];
       const item = document.createElement('li');
@@ -46,11 +48,50 @@ function renderSavedCalculations() {
       const monthly = document.createElement('p');
       monthly.textContent = 'Monthly payment: ' + formatPaymentAmount(record.monthlyPayment);
       item.append(heading, rate, total, monthly);
+      const removeButton = document.createElement('button');
+      removeButton.type = 'button';
+      removeButton.className = 'btn btn-outline-danger btn-sm align-self-start';
+      removeButton.textContent = 'Remove';
+      removeButton.setAttribute('aria-label', 'Remove saved calculation ' + (i + 1));
+      removeButton.addEventListener('click', function () { removeSavedCalculation(record.id); });
+      item.append(removeButton);
       savedCalculationList.append(item);
     }
   } catch (error) {
-    savedCalculationMessage.textContent = 'Saved calculations could not be read. Browser storage may be unavailable or contain damaged entries.';
+    // Clearing is an explicit action: damaged data is never reset on its own.
+    clearCalculationButton.disabled = false;
+    savedCalculationMessage.textContent = 'Saved calculations could not be read. Check browser storage, or use Clear saved calculations to remove damaged entries.';
   }
+}
+
+function removeSavedCalculation(id) {
+  try {
+    const records = readSavedCalculations();
+    const remaining = [];
+    for (let i = 0; i < records.length; i++) {
+      if (records[i].id !== id) remaining.push(records[i]);
+    }
+    localStorage.setItem(calculationStorageKey, JSON.stringify(remaining));
+    renderSavedCalculations();
+    savedCalculationMessage.textContent = 'Calculation removed.';
+    document.getElementById('saved-calculations-title').focus();
+  } catch (error) {
+    savedCalculationMessage.textContent = 'The calculation could not be removed. Existing entries have been kept. Please try again.';
+  }
+}
+
+if (clearCalculationButton) {
+  clearCalculationButton.addEventListener('click', function () {
+    try {
+      // Only this key is removed. Applications and the theme are untouched.
+      localStorage.removeItem(calculationStorageKey);
+      renderSavedCalculations();
+      savedCalculationMessage.textContent = 'Saved calculations cleared.';
+      document.getElementById('saved-calculations-title').focus();
+    } catch (error) {
+      savedCalculationMessage.textContent = 'Saved calculations could not be cleared. Please try again.';
+    }
+  });
 }
 
 if (savedCalculationList) renderSavedCalculations();
