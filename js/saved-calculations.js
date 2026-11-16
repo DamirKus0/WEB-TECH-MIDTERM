@@ -54,3 +54,41 @@ function renderSavedCalculations() {
 }
 
 if (savedCalculationList) renderSavedCalculations();
+
+const saveCalculationButton = document.getElementById('save-calculation');
+if (saveCalculationButton) {
+  saveCalculationButton.addEventListener('click', function () {
+    savedCalculationMessage.textContent = '';
+    // Check both the successful result and the current fields, including edits
+    // made without an input event. Stale estimates must not be saved.
+    if (!currentCalculation || document.getElementById('calculation-results').hidden ||
+        currentCalculation.amount !== Number(document.getElementById('loan-amount').value) ||
+        currentCalculation.termMonths !== Number(document.getElementById('loan-term').value)) {
+      savedCalculationMessage.textContent = 'Calculate again before saving this estimate.';
+      return;
+    }
+    try {
+      const records = readSavedCalculations();
+      let nextId = Date.now();
+      for (let i = 0; i < records.length; i++) {
+        const number = Number(records[i].id.slice(4));
+        if (number >= nextId) nextId = number + 1;
+      }
+      const record = {
+        id: 'CALC' + nextId,
+        amount: currentCalculation.amount,
+        termMonths: currentCalculation.termMonths,
+        annualRate: currentCalculation.annualRate,
+        interest: currentCalculation.interest,
+        total: currentCalculation.total,
+        monthlyPayment: currentCalculation.monthlyPayment
+      };
+      records.push(record);
+      localStorage.setItem(calculationStorageKey, JSON.stringify(records));
+      renderSavedCalculations();
+      savedCalculationMessage.textContent = 'Calculation saved.';
+    } catch (error) {
+      savedCalculationMessage.textContent = 'The calculation could not be saved. Check browser storage and try again. Existing entries have been kept.';
+    }
+  });
+}

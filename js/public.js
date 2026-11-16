@@ -33,6 +33,7 @@ function formatPaymentAmount(amount) {
 }
 
 const calculatorForm = document.getElementById('loan-calculator');
+let currentCalculation = null;
 
 if (calculatorForm) {
   const amountField = document.getElementById('loan-amount');
@@ -40,8 +41,11 @@ if (calculatorForm) {
   const results = document.getElementById('calculation-results');
   const applyLink = document.getElementById('calculator-apply');
   const message = document.getElementById('calculator-message');
+  const saveButton = document.getElementById('save-calculation');
 
   function clearCalculation() {
+    currentCalculation = null;
+    if (saveButton) saveButton.disabled = true;
     results.hidden = true;
     applyLink.hidden = true;
     applyLink.removeAttribute('href');
@@ -72,6 +76,15 @@ if (calculatorForm) {
       document.getElementById('loan-total').textContent = formatPaymentAmount(loan.total);
       document.getElementById('monthly-payment').textContent = formatPaymentAmount(loan.monthlyPayment);
       applyLink.href = 'apply.html?amount=' + amount + '&term=' + term;
+      currentCalculation = {
+        amount: amount,
+        termMonths: term,
+        annualRate: 0.05,
+        interest: loan.interest,
+        total: loan.total,
+        monthlyPayment: loan.monthlyPayment
+      };
+      if (saveButton) saveButton.disabled = false;
       results.hidden = false;
       applyLink.hidden = false;
     } catch (error) {
