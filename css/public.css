@@ -40,6 +40,8 @@
 
 /* New final tools keep the same card layout as the calculator. */
 .final-tool { padding: 20px 18px; }
+.theme-setting { padding: 0 4px 12px; }
+.theme-setting .form-check { margin-bottom: 4px; }
 .saved-calculation-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
