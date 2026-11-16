@@ -1,0 +1,24 @@
+/* Loaded last on every page, so existing light styles stay unchanged. */
+html[data-bs-theme="dark"] {
+  color-scheme: dark;
+  --site-text: #e5e7eb;
+  --site-border: #435268;
+  --site-blue: #93c5fd;
+  --bs-body-color: #e5e7eb;
+  --bs-body-color-rgb: 229, 231, 235;
+  --bs-body-bg: #101722;
+  --bs-secondary-color: #b8c3d1;
+  --bs-border-color: #435268;
+  --bs-primary-rgb: 147, 197, 253;
+  --bs-success-rgb: 106, 218, 155;
+  --bs-danger-rgb: 255, 161, 171;
+  --bs-link-color: #93c5fd;
+  --bs-link-color-rgb: 147, 197, 253;
+  --bs-link-hover-color: #bfdbfe;
+  --bs-link-hover-color-rgb: 191, 219, 254;
+}
+
+html[data-bs-theme="dark"] body {
+  color: #e5e7eb;
+  background: #101722;
+}
