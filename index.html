@@ -10,6 +10,8 @@
   <link href="css/common.css" rel="stylesheet">
   <link href="css/public.css" rel="stylesheet">
   <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <script src="js/theme.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -37,6 +39,13 @@
 
   <main class="container page-content">
     <p class="demo-notice mt-3">Student demonstration only. No real loans or payments. Use fictional personal information.</p>
+    <section class="theme-setting" aria-label="Appearance">
+      <div class="form-check form-switch">
+        <input id="dark-theme" class="form-check-input" type="checkbox" role="switch" aria-describedby="theme-message">
+        <label class="form-check-label" for="dark-theme">Dark theme</label>
+      </div>
+      <p id="theme-message" class="small mb-0" role="status"></p>
+    </section>
     <section class="hero text-center" aria-labelledby="hero-title">
       <h1 id="hero-title">Your Path to Financial Freedom Starts Here</h1>
       <p class="hero-description">Get quick and easy micro-loans to help you achieve your goals. Simple application, fast approval, and flexible repayment options.</p>
@@ -98,7 +107,37 @@
           <div class="col-12 col-sm-4"><dt>Monthly payment</dt><dd id="monthly-payment" class="text-primary"></dd></div>
         </dl>
       </div>
+      <button id="save-calculation" class="btn btn-outline-primary mt-3 align-self-start" type="button" disabled aria-describedby="save-calculation-help">Save calculation</button>
+      <p id="save-calculation-help" class="small mt-2 mb-0">After changing the amount or term, calculate again before saving.</p>
       <a id="calculator-apply" class="btn btn-primary mt-3 align-self-start" hidden>Apply with this amount and term</a>
+    </section>
+
+    <section class="card final-tool mt-4" aria-labelledby="saved-calculations-title">
+      <h2 id="saved-calculations-title" tabindex="-1">Saved calculations</h2>
+      <p>Keep loan estimates in this browser. Saving an estimate does not submit an application.</p>
+      <p id="saved-calculation-empty">No saved calculations yet.</p>
+      <ul id="saved-calculation-list" class="saved-calculation-list" aria-label="Saved loan estimates"></ul>
+      <button id="clear-saved-calculations" class="btn btn-outline-danger align-self-start" type="button" disabled>Clear saved calculations</button>
+      <p id="saved-calculation-message" class="mt-3 mb-0" role="status"></p>
+    </section>
+
+    <section class="card final-tool mt-4" aria-labelledby="currency-title">
+      <h2 id="currency-title">Amount in tenge</h2>
+      <p>Convert USD to KZT using a reference rate from <a href="https://frankfurter.dev/" target="_blank" rel="noopener noreferrer">Frankfurter</a>. Your loans and repayments remain in USD.</p>
+      <form id="currency-form" novalidate>
+        <label class="form-label" for="currency-amount">Amount in USD</label>
+        <div class="row align-items-start g-2">
+          <div class="col-12 col-sm-8">
+            <input class="form-control" id="currency-amount" name="usd" type="number" min="0.01" step="0.01" value="100" required aria-describedby="currency-amount-error">
+            <p id="currency-amount-error" class="field-error mb-0"></p>
+          </div>
+          <div class="col-12 col-sm-4">
+            <button id="convert-currency" class="btn btn-primary w-100" type="submit">Convert</button>
+          </div>
+        </div>
+      </form>
+      <p id="currency-message" class="mt-3 mb-0" role="status"></p>
+      <div id="currency-result" class="mt-3" aria-live="polite"></div>
     </section>
 
     <section class="bottom-cta text-center" aria-labelledby="cta-title">
@@ -124,5 +163,7 @@
   </footer>
   <script src="js/store.js" defer></script>
   <script src="js/public.js" defer></script>
+  <script src="js/currency.js" defer></script>
+  <script src="js/saved-calculations.js" defer></script>
 </body>
 </html>
