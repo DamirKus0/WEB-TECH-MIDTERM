@@ -1,6 +1,5 @@
 class Loan {
   constructor(amount, termMonths, annualRate) {
-    // Keep validation and the calculation formula in the shared module.
     window.MicroLoan.calculateLoan(amount, termMonths, annualRate);
     this.amount = amount;
     this.termMonths = termMonths;

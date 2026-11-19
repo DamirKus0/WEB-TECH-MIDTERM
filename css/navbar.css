@@ -113,7 +113,7 @@
 
 @media (max-width: 991px) {
   .navbar-shell { flex-wrap: wrap; gap: 0; min-height: 76px; padding: 16px 20px; }
-  .nav-menu-toggle {
+    .nav-menu-toggle {
     display: block;
     position: absolute;
     width: 1px;

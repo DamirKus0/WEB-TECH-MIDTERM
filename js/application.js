@@ -29,6 +29,7 @@ if (applicationForm) {
     return applicationForm.querySelector('[aria-invalid="true"]') === null;
   }
 
+
   const parameters = new URLSearchParams(window.location.search);
   const urlAmount = parameters.get('amount');
   const urlTerm = parameters.get('term');

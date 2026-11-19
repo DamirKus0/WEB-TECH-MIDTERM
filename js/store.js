@@ -103,7 +103,6 @@ function updateApplication(id, changes) {
     throw new Error('Choose a loan purpose.');
   }
 
-  // Only these fields can change; identity, status and dates stay the same.
   record.amount = changes.amount;
   record.termMonths = changes.termMonths;
   record.purpose = changes.purpose;

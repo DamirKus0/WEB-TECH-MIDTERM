@@ -102,7 +102,6 @@ function renderLatestApplication() {
 }
 
 function refreshDashboard() {
-  // Read again after saving so cards, the counter and the latest application agree.
   loans = window.MicroLoan.getLoans();
   loanLoadError = '';
   renderLoans(loanStatusFilter.value);
